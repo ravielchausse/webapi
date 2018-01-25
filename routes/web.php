@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/balance', 'BalanceController@index');
+Route::get('/balance/{id}', 'BalanceController@show');
