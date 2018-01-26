@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 Route::get('/balance', 'BalanceController@index');
 Route::get('/balance/{id}', 'BalanceController@show');
+
+Route::get('/user', 'UserController@index');
+Route::get('/user/{id}', 'UserController@show');
+Route::delete('/user/{id}', 'UserController@destroy');

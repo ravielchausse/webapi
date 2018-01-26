@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class User extends Authenticatable
+class User extends Eloquent
 {
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -26,4 +23,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function listAll ($attributes)
+    {
+        return User::all();
+    }
+
+    public function getById ($id)
+    {
+        return User::find($id);
+    }
+
+    public function deleteById ($id)
+    {
+        return (string) $this->where('id', $id)->delete();
+    }
 }
